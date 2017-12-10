@@ -22,6 +22,16 @@ public class PlayerBehaviour : MonoBehaviour {
 
     // 레이저를 발사하기 위해 사용하는 버튼들
     public List<KeyCode> shootButton;
+
+    // 발사할 때 재생되는 사운드  
+    public AudioClip shootSound;
+    // AudioSource 컴포넌트의 레퍼런스 
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 	
 	void Update () 
     {
@@ -44,6 +54,8 @@ public class PlayerBehaviour : MonoBehaviour {
     // 레이저를 생성하고 초기 위치를 우주선 앞으로 지정한다.
     void ShootLaser()
     {
+        audioSource.PlayOneShot(shootSound);
+
         // 레이저의 위치를 플레이어의 위치에 따라 지정한다.
         Vector3 laserPos = this.transform.position;
 
@@ -55,6 +67,8 @@ public class PlayerBehaviour : MonoBehaviour {
         laserPos.y += (Mathf.Sin((rotationAngle) * Mathf.Deg2Rad) * -laserDistance);
 
         Instantiate(laser, laserPos, this.transform.rotation);
+
+
     }
 
     void Rotation()

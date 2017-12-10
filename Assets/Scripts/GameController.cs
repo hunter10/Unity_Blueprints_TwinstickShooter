@@ -1,10 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
     public Transform enemy;
+
+    [Header("User Interface")]
+    public Text scoreText;
+    public Text waveText;
+
+    private int score = 0;
+    private int waveNumber = 0;
+
+
 
     [Header("Wave Properties")]
     public float timeBeforeSpawning = 1.5f;
@@ -30,6 +40,9 @@ public class GameController : MonoBehaviour {
             // 이전 웨이브의 적이 모두 죽기 전에는 새로운 적을 생성하지 않는다.
             if (currentNumberOfEnemies <= 0)
             {
+                waveNumber++;
+                waveText.text = "Wave: " + waveNumber;
+
                 // 10개의 적을 무작위 위치에 생성한다.
                 for (int i = 0; i < enemiesPerWave; i++)
                 {
@@ -58,10 +71,16 @@ public class GameController : MonoBehaviour {
             yield return new WaitForSeconds(timeBeforeWaves);
         }
     }
+
+    public void IncreaseScore(int increase)
+    {
+        score += increase;
+        scoreText.text = "Score: " + score;
+    }
 	
     public void KilledEnemy()
     {
-        currentNumberOfEnemies--;    
+        currentNumberOfEnemies--;   
     }
 
 	// Update is called once per frame
