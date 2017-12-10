@@ -1,7 +1,12 @@
-﻿<Properties StartupConfiguration="{3233DEAF-5D20-EDC2-2E3E-8BD181E4DDC9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerBehaviour.cs">
+﻿<Properties StartupConfiguration="{D9A45DE1-1869-4E9E-3966-70DF22FE75D7}|단위 테스트">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemyBehaviour.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerBehaviour.cs" Line="9" Column="50" />
+      <File FileName="Assets/Scripts/PlayerBehaviour.cs" Line="35" Column="1" />
+      <File FileName="Assets/Scripts/LaserBehaviour.cs" Line="20" Column="2" />
+      <File FileName="Assets/Scripts/MoveTowardPlayer.cs" Line="8" Column="27" />
+      <File FileName="Assets/Scripts/EnemyBehaviour.cs" Line="28" Column="136" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="64" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
