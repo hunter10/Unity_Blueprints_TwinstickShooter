@@ -35,20 +35,23 @@ public class PlayerBehaviour : MonoBehaviour {
 	
 	void Update () 
     {
-        Rotation();
-        Movement();
-
-        foreach(KeyCode element in shootButton)
+        if (!PauseMenuBehaviour.isPaused)
         {
-            if(Input.GetKey(element) && timeTilNextFire < 0)
-            {
-                timeTilNextFire = timeBetweenFires;
-                ShootLaser();
-                break;
-            }
-        }
+            Rotation();
+            Movement();
 
-        timeTilNextFire -= Time.deltaTime;
+            foreach (KeyCode element in shootButton)
+            {
+                if (Input.GetKey(element) && timeTilNextFire < 0)
+                {
+                    timeTilNextFire = timeBetweenFires;
+                    ShootLaser();
+                    break;
+                }
+            }
+
+            timeTilNextFire -= Time.deltaTime;
+        }
 	}
 
     // 레이저를 생성하고 초기 위치를 우주선 앞으로 지정한다.
